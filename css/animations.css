@@ -1,0 +1,114 @@
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Nav Animation */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Burger Animation */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Typing Animation */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Soft Hover Glow */
+.btn:hover, .project-card:hover, .timeline-content:hover, .social-links a:hover {
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+/* Pulse Animation for Logo */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(142, 68, 173, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+    }
+}
+
+.logo::after {
+    animation: pulse 2s infinite;
+}
+
+/* Float animation for project cards on hover */
+.project-card:hover {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.primary-btn {
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+}
+
+/* Shake animation for form error */
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
+    20%, 40%, 60%, 80% {transform: translateX(5px);}
+}
+
+.shake {
+    animation: shake 0.6s;
+}
