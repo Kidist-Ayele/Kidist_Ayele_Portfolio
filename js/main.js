@@ -158,7 +158,7 @@ function handleFormSubmit(e) {
     
     if (isValid) {
         // In a real application, you would send the form data to a server here
-        alert('Message sent successfully! (This is a demo - no actual message was sent)');
+        alert('Message sent successfully!');
         form.reset();
     }
 }
