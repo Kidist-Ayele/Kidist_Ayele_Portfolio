@@ -270,21 +270,14 @@
                     <a href="https://codeforces.com/profile/Bit4kid" target="_blank"><i class="fas fa-laptop-code"></i></a>
                 </div>
             </div>
-            <form id="contactForm" class="contact-form fade-in">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn primary-btn">Send Message</button>
+            <form action="https://formsubmit.co/el/xamumo" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
             </form>
+
 
             <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
             ✅ Message sent successfully!
@@ -302,7 +295,6 @@
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
             </div>
         </div>
     </footer>
