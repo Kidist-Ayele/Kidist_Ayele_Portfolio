@@ -272,19 +272,24 @@
             </div>
             <form id="contactForm" class="contact-form fade-in">
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Subject" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Your Message" required></textarea>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn primary-btn">Send Message</button>
             </form>
+
+            <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
+            ✅ Message sent successfully!
+            </div>
+
         </div>
     </section>
 
@@ -307,5 +312,6 @@
     <script src="js/particles-config.js"></script>
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
+
 </body>
 </html>
