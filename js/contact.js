@@ -3,7 +3,8 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
     const form = e.target;
 
-    fetch("https://formsubmit.co/89f5efa464cd1fda2cdc21a9897ecdf1", {
+    fetch("https://formsubmit.co/el/xamumo", {
+
         method: "POST",
         body: new FormData(form),
         headers: {
