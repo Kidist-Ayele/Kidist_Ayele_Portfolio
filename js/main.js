@@ -13,9 +13,10 @@ const form = document.querySelector('.contact-form');
 const typingTextElement = document.getElementById('typing-text');
 const textsToType = [
     'Computer Science Student.',
-    'Problem Solver.',
+    'UI/UX Designer.',
     'Software Developer.',
-    'Competitive Programmer.'
+    'Competitive Programmer.',
+    'Problem Solver.'
 ];
 let textIndex = 0;
 let charIndex = 0;
@@ -113,6 +114,11 @@ function setActiveNav() {
 
 // Type text function
 function typeText() {
+    if (!typingTextElement) {
+        console.error('Typing text element not found in typeText function');
+        return;
+    }
+    
     const currentText = textsToType[textIndex];
     
     if (isDeleting) {
@@ -140,11 +146,8 @@ function typeText() {
     setTimeout(typeText, typingDelay);
 }
 
-// Form submission (prevent default for demo)
-function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    // Simple validation
+// Form validation helper (moved to contact.js)
+function validateForm(form) {
     let isValid = true;
     const inputs = form.querySelectorAll('input, textarea');
     
@@ -156,11 +159,7 @@ function handleFormSubmit(e) {
         }
     });
     
-    if (isValid) {
-        // In a real application, you would send the form data to a server here
-        alert('Message sent successfully!');
-        form.reset();
-    }
+    return isValid;
 }
 
 // Event Listeners
@@ -168,11 +167,16 @@ burger.addEventListener('click', toggleNav);
 window.addEventListener('click', closeNav);
 window.addEventListener('scroll', stickyHeader);
 window.addEventListener('scroll', setActiveNav);
-form.addEventListener('submit', handleFormSubmit);
 
 // Initialize typing effect on page load
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeText, 1000);
+    // Check if typing element exists
+    if (typingTextElement) {
+        console.log('Typing effect initialized');
+        setTimeout(typeText, 1000);
+    } else {
+        console.error('Typing text element not found');
+    }
     setActiveNav();
 });
 
@@ -196,9 +200,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Reset form fields when inputs are changed
-form.querySelectorAll('input, textarea').forEach(input => {
-    input.addEventListener('input', () => {
-        input.classList.remove('shake');
+// Reset form fields when inputs are changed (if form exists)
+if (form) {
+    form.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('input', () => {
+            input.classList.remove('shake');
+        });
     });
-});
+}
