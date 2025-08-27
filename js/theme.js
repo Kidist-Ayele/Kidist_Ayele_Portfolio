@@ -35,6 +35,8 @@ class ThemeManager {
 
     setTheme(theme) {
         console.log('ThemeManager: Setting theme to:', theme);
+        
+        // Apply theme immediately
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         this.currentTheme = theme;
@@ -45,7 +47,15 @@ class ThemeManager {
         // Update particles background for light theme (with error handling)
         this.updateParticles(theme);
         
-        console.log('ThemeManager: Theme set successfully');
+        // Verify theme was applied
+        const appliedTheme = document.documentElement.getAttribute('data-theme');
+        console.log('ThemeManager: Theme applied successfully. Current theme:', appliedTheme);
+        
+        // Debug: Log CSS variables
+        const computedStyle = getComputedStyle(document.documentElement);
+        const bgColor = computedStyle.getPropertyValue('--background-color');
+        const textColor = computedStyle.getPropertyValue('--text-color');
+        console.log('ThemeManager: CSS Variables - Background:', bgColor, 'Text:', textColor);
     }
 
     updateThemeText(theme) {
@@ -112,3 +122,11 @@ if (document.readyState === 'loading') {
     console.log('DOM already loaded, initializing ThemeManager immediately...');
     new ThemeManager();
 }
+
+// Fallback initialization for edge cases
+window.addEventListener('load', () => {
+    if (!window.themeManager) {
+        console.log('Fallback theme initialization...');
+        window.themeManager = new ThemeManager();
+    }
+});

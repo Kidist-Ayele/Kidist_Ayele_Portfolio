@@ -29,11 +29,17 @@
      --input-focus-bg: rgba(0, 0, 0, 0.08);
  }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ /* Prevent Flash of Unstyled Content */
+ html {
+     visibility: visible;
+     opacity: 1;
+ }
 
 html {
     scroll-behavior: smooth;
