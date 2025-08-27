@@ -374,11 +374,18 @@ header.sticky {
 
 .cursor {
     display: inline-block;
-    width: 3px;
-    height: 1.8rem;
-    background-color: var(--text-color);
-    margin-left: 5px;
+    width: auto;
+    height: auto;
+    margin-left: 2px;
+    color: var(--text-color);
+    font-weight: normal;
     animation: cursor-blink 1s infinite;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    vertical-align: baseline;
+    position: relative;
+    top: 0;
+    font-family: inherit;
 }
 
 @keyframes cursor-blink {
