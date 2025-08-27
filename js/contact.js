@@ -169,29 +169,70 @@ function isValidEmail(email) {
 
 function showSuccessMessage() {
     const successMessage = document.getElementById('successMessage');
-    if (successMessage) {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (successMessage && contactForm) {
+        // Hide the form
+        contactForm.style.display = 'none';
+        // Show success message
         successMessage.style.display = 'block';
+        
         setTimeout(() => {
+            // Hide success message
             successMessage.style.display = 'none';
+            // Show form again
+            contactForm.style.display = 'block';
         }, 5000);
     }
 }
 
 function showErrorMessage(message) {
     const successMessage = document.getElementById('successMessage');
-    if (successMessage) {
-        successMessage.textContent = '❌ ' + message;
-        successMessage.style.color = '#e74c3c';
-        successMessage.style.background = 'rgba(231, 76, 60, 0.1)';
-        successMessage.style.border = '1px solid #e74c3c';
+    const contactForm = document.getElementById('contactForm');
+    
+    if (successMessage && contactForm) {
+        // Update success message content for error
+        const successContent = successMessage.querySelector('.success-content');
+        if (successContent) {
+            const icon = successContent.querySelector('.success-icon');
+            const title = successContent.querySelector('h3');
+            const description = successContent.querySelector('p');
+            
+            if (icon) icon.textContent = '❌';
+            if (title) title.textContent = 'Message Failed to Send';
+            if (description) description.textContent = message;
+            
+            // Change colors to error theme
+            successMessage.style.borderColor = '#e74c3c';
+            if (icon) icon.style.color = '#e74c3c';
+        }
+        
+        // Hide the form
+        contactForm.style.display = 'none';
+        // Show error message
         successMessage.style.display = 'block';
+        
         setTimeout(() => {
+            // Hide error message
             successMessage.style.display = 'none';
+            // Show form again
+            contactForm.style.display = 'block';
+            
             // Reset to original success styling
-            successMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
-            successMessage.style.color = '#4CAF50';
-            successMessage.style.background = 'rgba(76, 175, 80, 0.1)';
-            successMessage.style.border = '1px solid #4CAF50';
+            const successContent = successMessage.querySelector('.success-content');
+            if (successContent) {
+                const icon = successContent.querySelector('.success-icon');
+                const title = successContent.querySelector('h3');
+                const description = successContent.querySelector('p');
+                
+                if (icon) icon.textContent = '✅';
+                if (title) title.textContent = 'Message Sent Successfully!';
+                if (description) description.textContent = 'Thank you for reaching out. I\'ll get back to you soon.';
+                
+                // Reset colors
+                successMessage.style.borderColor = '';
+                if (icon) icon.style.color = '#4CAF50';
+            }
         }, 5000);
     }
 }

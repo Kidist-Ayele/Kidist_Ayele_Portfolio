@@ -343,7 +343,7 @@
                 </div>
             </div>
             <div class="contact-form">
-                                 <form id="contactForm" novalidate>
+                <form id="contactForm" novalidate>
                     <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
@@ -364,12 +364,17 @@
                         <textarea name="message" id="message" placeholder="Your Message" required></textarea>
                         <div class="error-message" id="messageError" style="display: none;"></div>
                     </div>
-                                         <button type="button" id="submitBtn">Send Message</button>
+                    <button type="button" id="submitBtn">Send Message</button>
                 </form>
-            </div>
-
-            <div id="successMessage" style="display:none; color: #4CAF50; margin-top: 10px; text-align: center; font-weight: 500;">
-                ✅ Message sent successfully! I'll get back to you soon.
+                
+                <!-- Success message inside the contact form container -->
+                <div id="successMessage" class="success-container" style="display: none;">
+                    <div class="success-content">
+                        <div class="success-icon">✅</div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for reaching out. I'll get back to you soon.</p>
+                    </div>
+                </div>
             </div>
 
         </div>
