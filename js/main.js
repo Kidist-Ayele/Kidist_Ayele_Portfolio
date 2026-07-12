@@ -12,7 +12,7 @@ const form = document.querySelector('.contact-form');
 // Typing effect
 const typingTextElement = document.getElementById('typing-text');
 const textsToType = [
-    'Computer Science Student.',
+    'Software Engineer.',
     'UI/UX Designer.',
     'Software Developer.',
     'Competitive Programmer.',
